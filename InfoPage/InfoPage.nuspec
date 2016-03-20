@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/zeppaman/info-page/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/zeppaman/info-page/</projectUrl>
+    <iconUrl>https://github.com/zeppaman/info-page/blob/master/icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>First relase</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>Info Changelog change track Owin Nancy</tags>
+    <dependencies>
+      <dependency id="Nancy" version="1.4.3" />
+      <dependency id="Nancy.Owin" version="1.4.1" />
+      <dependency id="Owin" version="1.0" />
+    </dependencies>
+
+
+  </metadata>
+</package>

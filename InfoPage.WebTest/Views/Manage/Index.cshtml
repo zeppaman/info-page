@@ -1,0 +1,84 @@
+﻿@model InfoPage.WebTest.Models.IndexViewModel
+@{
+    ViewBag.Title = "Gestisci";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Cambiare le impostazioni dell'account</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Cambia password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Crea", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>Account di accesso esterni:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Gestisci", "ManageLogins") ]
+        </dd>
+        @*
+            I numeri di telefono possono essere usati come secondo fattore di verifica in un sistema di autenticazione a due fattori.
+             
+             Vedere <a href="http://go.microsoft.com/fwlink/?LinkId=403804">questo articolo</a>
+                per informazioni su come configurare l'applicazione ASP.NET per il supporto dell'autenticazione a due fattori tramite SMS.
+             
+             Rimuovere i commenti dal blocco seguente dopo aver configurato l'autenticazione a due fattori
+        *@
+        @*  
+            <dt>Numero di telefono:</dt>
+            <dd>
+                @(Model.PhoneNumber ?? "Nessuno") [
+                @if (Model.PhoneNumber != null)
+                {
+                    @Html.ActionLink("Cambia", "AddPhoneNumber")
+                    @: &nbsp;|&nbsp;
+                    @Html.ActionLink("Rimuovi", "RemovePhoneNumber")
+                }
+                else
+                {
+                    @Html.ActionLink("Aggiungi", "AddPhoneNumber")
+                }
+                ]
+            </dd>
+        *@
+        <dt>Autenticazione a due fattori:</dt>
+        <dd>
+            <p>
+                Non sono configurati provider di autenticazione a due fattori. Vedere <a href="http://go.microsoft.com/fwlink/?LinkId=403804">questo articolo</a>
+                per informazioni su come configurare l'applicazione ASP.NET per il supporto dell'autenticazione a due fattori.
+            </p>
+            @*@if (Model.TwoFactor)
+                {
+                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Abilitata
+                        <input type="submit" value="Disabilita" class="btn btn-link" />
+                        </text>
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Disabilitata
+                        <input type="submit" value="Abilita" class="btn btn-link" />
+                        </text>
+                    }
+                }*@
+        </dd>
+    </dl>
+</div>
