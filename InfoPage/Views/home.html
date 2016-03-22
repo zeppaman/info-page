@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>@Model.title</title>
+    <title>Info Page - Application info page</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/Content/css/bootstrap.min.css" >
@@ -14,22 +15,45 @@
 </head>
 <body>
 
+    <div class="page-header">
+  <h1>Example page header <small>Subtext for header</small></h1>
+</div>
     <div>
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+            <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
+            
+            <li role="presentation"><a href="#assembly" aria-controls="assembly" role="tab" data-toggle="tab">Assembly</a></li>
+            @If.ShowChanceLog
+            <li role="presentation"><a href="#changelogs" aria-controls="changelogs" role="tab" data-toggle="tab">Chancelog</a></li>
+            @EndIf
+
+             @If.ShowLicense
+            <li role="presentation"><a href="#license" aria-controls="license" role="tab" data-toggle="tab">License</a></li>
+            @EndIf
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">...</div>
-            <div role="tabpanel" class="tab-pane" id="profile">...</div>
-            <div role="tabpanel" class="tab-pane" id="messages">...</div>
-            <div role="tabpanel" class="tab-pane" id="settings">...</div>
+            <div role="tabpanel" class="tab-pane active" id="info">
+                <h2>Info</h2>
+                @Model.MainAssembly.Title
+                
+                @If.Conf.ShowInfo
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">application info</h3>
+                  </div>
+                  <div class="panel-body">
+                     @Model.Info
+                  </div>
+                </div>
+                @EndIf
+            </div>
+            <div role="tabpanel" class="tab-pane" id="assembly"><h2>Assembly info</h2></div>
+            <div role="tabpanel" class="tab-pane" id="changelogs"><h2>Changelogs</h2></div>
+            <div role="tabpanel" class="tab-pane" id="license"><h2>License</h2></div>
         </div>
 
     </div>
