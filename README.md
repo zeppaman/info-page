@@ -17,7 +17,7 @@ To complete your installation you need also few others step:
 
 ### 1. Add " runAllManagedModulesForAllRequests="true"" to module tag in web.config
 After that you should have something like that
-<code lan="xml">
+```
 ...
 <system.webServer>
     <modules runAllManagedModulesForAllRequests="true">
@@ -25,7 +25,7 @@ After that you should have something like that
     </modules>
   </system.webServer>
   ---
-</code>
+```
 
 ### 2.Place changelog and info files 
 InfoPage looks for files to show inside information pages. These file supports Markdown syntax and can be edited during your work. 
