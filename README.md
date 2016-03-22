@@ -17,7 +17,7 @@ To complete your installation you need also few others step:
 
 ### 1. Add " runAllManagedModulesForAllRequests="true"" to module tag in web.config
 After that you should have something like that
-```
+```xml
 ...
 <system.webServer>
     <modules runAllManagedModulesForAllRequests="true">
@@ -27,7 +27,35 @@ After that you should have something like that
   ---
 ```
 
-### 2.Place changelog and info files 
+### 2.Edit startup file
+You have to configure infopage in a startup owin module, after adding InfoPage from nuget you should have startup.cs and you should fix as below:
+```cs
+using InfoPage.Configuration;
+using Microsoft.Owin;
+using Owin;
+
+[assembly: OwinStartupAttribute(typeof(InfoPage.WebTest.Startup))]
+namespace InfoPage.WebTest
+{
+    public partial class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            ConfigureAuth(app);
+
+            InfoPageConfigurator.Configure(app, 
+                x => {
+                    x.BaseUrl = "custom-info";
+                    x.ApplicationName = "My Sample Application";
+                });
+        }
+    }
+}
+
+```
+
+
+### 3.Place changelog and info files and start to use it during developement
 InfoPage looks for files to show inside information pages. These file supports Markdown syntax and can be edited during your work. 
 Conventiionally these file must be on the root of web application and must be called "info.md","changelog.md", "license.md", but this could be changed by configuration.
 
