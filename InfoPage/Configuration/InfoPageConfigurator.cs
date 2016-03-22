@@ -33,6 +33,8 @@ namespace InfoPage.Configuration
 
             settings.MainAssembly=type.Assembly;
             conf.Invoke(settings);
+            settings.ApplicationName = settings.MainAssembly.GetName().Name;
+            settings.ApplicationSubtitle = "info about this application";
 
             InfoPageConfigurator._current = settings;
            

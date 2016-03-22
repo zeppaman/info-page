@@ -35,6 +35,7 @@ namespace InfoPage.Helpers
             aa.Culture = an.CultureInfo.DisplayName;
             aa.Architecture = an.ProcessorArchitecture.ToString();
             aa.PublicKeyToken = System.Text.Encoding.ASCII.GetString(an.GetPublicKeyToken());
+            aa.Version = (String.IsNullOrEmpty(aa.Version))? an.Version.ToString():aa.Version;
             return aa;
         }
 
