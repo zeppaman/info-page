@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InfoPage</RootNamespace>
     <AssemblyName>InfoPage</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonMark, Version=0.1.0.0, Culture=neutral, PublicKeyToken=001ef8810438905d, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonMark.NET.0.11.0\lib\net45\CommonMark.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Nancy, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
       <Private>True</Private>
@@ -45,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,9 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AssemblyMetadata.cs" />
     <Compile Include="Configuration\InfoPageConfiguration.cs" />
     <Compile Include="Configuration\InfoPageConfigurator.cs" />
     <Compile Include="Configuration\EmbeddedStaticContentConventionBuilder.cs" />
+    <Compile Include="Helpers\InfoHelper.cs" />
+    <Compile Include="Model\InfoPageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration\ResourceBootstrapper.cs" />
     <Compile Include="Configuration\ResourceViewLocationProvider.cs" />
@@ -76,6 +85,7 @@
     <EmbeddedResource Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <EmbeddedResource Include="Content\imgs\katana.jpg" />
     <EmbeddedResource Include="Content\js\bootstrap.min.js" />
+    <EmbeddedResource Include="Content\js\jquery-1.12.2.min.js" />
     <Content Include="nuget.exe" />
     <EmbeddedResource Include="Views\home.html" />
   </ItemGroup>

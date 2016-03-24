@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nancy;
+using InfoPage.Configuration;
+using InfoPage.Helpers;
 
 namespace InfoPage.Modules
 {
@@ -12,13 +14,11 @@ namespace InfoPage.Modules
     {
         public WelcomeModule()
         {
-            string baseHome = ConfigurationManager.AppSettings["InfoPage:home"];
-            baseHome = (baseHome) ?? "info";
-            Get["/"+baseHome] = _ => {
-                var model = new
-                {
-                    title = "We've Got Issues..."
-                };
+            string baseUrl = InfoPageConfigurator.Configuration.BaseUrl;
+            baseUrl = (baseUrl) ?? "info";
+            Get["/" + baseUrl] = _ =>
+            {
+                var model = InfoHelper.GetInfoPage(InfoPageConfigurator.Configuration);
 
                 return View["home.html", model];
             };

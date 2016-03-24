@@ -1,37 +1,149 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <title>@Model.title</title>
+    <title>Info Page - Application info page</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="/Content/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="/Content/css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="/Content/js/bootstrap.min.js" ></script>
+    <script src="/Content/js/jquery-1.12.2.min.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <style>
+       
+        .footer {
+            height: 30px;
+            background-color: #f5f5f5;
+            line-height: 30px;
+            PADDING: 0PX 38PX;
+            MARGIN: 0PX;
+        }
+
+
+        .bs-callout {
+            padding: 20px;
+            margin: 20px 0px;
+            border: solid rgb(238, 238, 238);
+            border-radius: 3px;
+        }
+
+            .bs-callout h4 {
+                margin-top: 0px;
+                margin-bottom: 5px;
+            }
+
+        .bs-callout-danger {
+            border-left-color: rgb(206, 72, 68);
+        }
+
+            .bs-callout-danger h4 {
+                color: rgb(206, 72, 68);
+            }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="page-header">
+            <h1>@Model.Conf.ApplicationName <small>@Model.Conf.ApplicationSubtitle</small></h1>
+        </div>
+        <div>
 
-    <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-        </ul>
+                <li role="presentation"><a href="#assembly" aria-controls="assembly" role="tab" data-toggle="tab">Assembly</a></li>
+                @If.Conf.ShowChangeLog
+            <li role="presentation"><a href="#changelogs" aria-controls="changelogs" role="tab" data-toggle="tab">Chancelog</a></li>
+                @EndIf
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">...</div>
-            <div role="tabpanel" class="tab-pane" id="profile">...</div>
-            <div role="tabpanel" class="tab-pane" id="messages">...</div>
-            <div role="tabpanel" class="tab-pane" id="settings">...</div>
+             @If.Conf.ShowLicense
+            <li role="presentation"><a href="#license" aria-controls="license" role="tab" data-toggle="tab">License</a></li>
+                @EndIf
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="info">
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>Info</h4>
+                        @Model.MainAssembly.Title
+                    <i>@Model.MainAssembly.Description</i>
+
+                        <p>
+                            <label>Fullname:</label>@Model.MainAssembly.FullName</p>
+                        <p>
+                            <label>Version:</label>@Model.MainAssembly.Version</p>
+                        <p>
+                            <label>Architecture:</label>@Model.MainAssembly.Architecture</p>
+                        <p>
+                            <label>Culture:</label>@Model.MainAssembly.Culture</p>
+                        <p>
+                            <label>Copyright:</label>@Model.MainAssembly.Copyright</p>
+
+                    </div>
+                    @If.Conf.ShowInfo
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">application info</h3>
+                    </div>
+                    <div class="panel-body">
+                        @Model.Info
+                    </div>
+                </div>
+                    @EndIf
+
+
+                </div>
+                <div role="tabpanel" class="tab-pane " id="assembly">
+                    <h2>Assembly info</h2>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>FullName</th>
+                                <th>Version</th>
+                                <th>Architecture</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @Each.LoadedAssemblies
+                        <tr>
+                            <td>@Current.Title</td>
+                            <td>@Current.FullName</td>
+                            <td>@Current.Version</td>
+                            <td>@Current.Architecture</td>
+
+                        </tr>
+                            @EndEach
+                        </tbody>
+                    </table>
+                </div>
+                @If.Conf.ShowChangeLog
+            <div role="tabpanel" class="tab-pane " id="changelogs">
+                <h2>Changelogs</h2>
+                @Model.ChangeLogs
+            </div>
+                @EndIf
+
+             @If.Conf.ShowLicense
+            <div role="tabpanel" class="tab-pane" id="license">
+                <h2>License</h2>
+                @Model.License
+            </div>
+                @EndIf
+            </div>
+
         </div>
 
+        <div class="row-fluid footer">
+            <a href="https://github.com/zeppaman/info-page" class="label label-warning">Powered by INFO PAGE project</a> - <a href="https://github.com/zeppaman/info-page/blob/master/LICENSE">LICENSE</a> - <a href="https://github.com/zeppaman/info-page/blob/master/README.md">README</a>
+        
     </div>
+    </div>
+    
 </body>
 </html>

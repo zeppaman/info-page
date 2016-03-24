@@ -14,6 +14,7 @@ namespace InfoPage.WebTest
             InfoPageConfigurator.Configure(app, 
                 x => {
                     x.BaseUrl = "custom-info";
+                    x.ApplicationName = "My Sample Application";
                 });
         }
     }
