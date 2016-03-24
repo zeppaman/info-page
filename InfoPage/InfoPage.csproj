@@ -82,10 +82,13 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildProjectDirectory)\..\.build\MSBuild.Community.Tasks.targets" />
   <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
+    <ItemGroup>
+      <FileToMove Include="$(MSBuildProjectDirectory)\InfoPage*.nupkg" />
+    </ItemGroup>
     <!-- Only download a new copy of nuget.exe if we don't have a copy available -->
     <WebDownload Condition="!Exists('nuget.exe')" Filename="nuget.exe" FileUri="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" />
     <Exec Command="nuget pack InfoPage.csproj -Prop Configuration=Release">
     </Exec>
-    <Move SourceFiles="$(MSBuildProjectDirectory)\InfoPage.1.0.0.0.nupkg" DestinationFolder="..\dist" ContinueOnError="true" />
+    <Move SourceFiles="@(FileToMove)" DestinationFolder="..\dist" ContinueOnError="true" />
   </Target>
 </Project>
