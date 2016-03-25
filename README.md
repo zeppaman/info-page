@@ -1,4 +1,4 @@
-# InfoPage: Info Page fro .net applicaion
+# InfoPage: Info Page for MVC sites
 Info page is a library used to add cange log track and show build info inside a web application. The target of this project is to add a "info page feature" without any condiguration issue.
 
 If you can't image it, think about "php info" and add to it the capability to manage application changes and info (license,info, build number...).
