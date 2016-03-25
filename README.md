@@ -11,9 +11,11 @@ Simply adding a library from nuget you get a fully working page thar show you:
 * Changelog
 
 ##Info page tutorial summary
-1.[How to install](#how-to-install)
-2.How to configure
-3.How to use
+1. [How to install](#how-to-install)
+
+2.[How to configure
+
+3.[How to use
 
 ##<a name="how-to-install">How to install & configure</a>
 Configuration is easy. Step 1 is to add to visual studio project by nuget. You just need to search for InfoPage package and add it to your MVC project.
@@ -65,5 +67,7 @@ InfoPage looks for files to show inside information pages. These file supports M
 Conventiionally these file must be on the root of web application and must be called "info.md","changelog.md", "license.md", but this could be changed by configuration.
 
 
-<a name="how-to-install">
+##<a name="how-to-configure">How to configure</a>
+
+##<a name="how-to-use">How to configure</a>
 
