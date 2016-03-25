@@ -1,7 +1,7 @@
-# info-page
-Info page is a library used to add cange log track and show build info inside a web application.
+# InfoPage: Info Page fro .net applicaion
+Info page is a library used to add cange log track and show build info inside a web application. The target of this project is to add a "info page feature" without any condiguration issue.
 
-The target of this project is to add a "info page feature" without any condifuration issue.
+If you can't image it, think about "php info" and add to it the capability to manage application changes and info (license,info, build number...).
 
 Simply adding a library from nuget you get a fully working page thar show you:
 
