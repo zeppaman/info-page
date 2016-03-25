@@ -64,5 +64,6 @@ namespace InfoPage.WebTest
 InfoPage looks for files to show inside information pages. These file supports Markdown syntax and can be edited during your work. 
 Conventiionally these file must be on the root of web application and must be called "info.md","changelog.md", "license.md", but this could be changed by configuration.
 
-See wiki for more details.
+
+<a name="how-to-install">
 
