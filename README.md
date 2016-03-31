@@ -83,7 +83,7 @@ You can customize InfoPage behaviour settings configuration. All property of   I
 |  **ApplicationName** | String  | This is the application name. If empty main assembly name will be used.This field has only presentation purpouse  |
 |  **ApplicationSubtitle** |  String |  This is a subtitle to show inside info page. If empty main assembly name will be used.This field has only presentation purpouse. Set it as an empty string to hide |
 
-# Override views
+### Override views
 This can be done by placing a view inside "views" folder of main MVC application. This view can be copied from repository inside view folder of InfoPage library project [here](https://github.com/zeppaman/info-page/blob/master/InfoPage/Views/home.html). After that you can simply edit the view and alter as You prefer.
 
 ##<a name="how-to-use">How to Use</a>
