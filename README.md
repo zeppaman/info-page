@@ -68,16 +68,24 @@ Conventiionally these file must be on the root of web application and must be ca
 ##<a name="how-to-configure">How to configure</a>
 
 
+### Settings 
+You can customize InfoPage behaviour settings configuration. All property of   InfoPageConfiguration.cs can be changed by user.
+| property  | Values  | Meaning  |
+|---|---|---|
+|  BaseUrl |  String | is the url where Info Page Respond. /info is the default value   |
+|  ChangeLogPath | String  |  the path relative to root application for change log file. This file support markdown syntax  |
+|  LicensePath |  String |  the path relative to root application for License file. This file support markdown syntax    |
+|  InfoPath | String  |  the path relative to root application for info about application. This file support markdown syntax    |
+|  ShowInfo | bool |  By default it is true if Info file is found. Can be edited to force to hide file even if present o show it anyway |
+|  ShowLicense |  bool |  By default it is true if license file is found. Can be edited to force to hide file even if present o show it anyway |
+|  ShowChangeLog | bool  |  By default it is true if change file is found. Can be edited to force to hide file even if present o show it anyway |
+|  ApplicationName | String  | This is the application name. If empty main assembly name will be used.This field has only presentation purpouse  |
+|  ApplicationSubtitle |  String |  This is a subtitle to show inside info page. If empty main assembly name will be used.This field has only presentation purpouse. Set it as an empty string to hide |
+
+# Override views
 
 
-
-
-
-
-
-
-
-##<a name="how-to-use">How to configure</a>
+##<a name="how-to-use">How to Use</a>
 
 
 
