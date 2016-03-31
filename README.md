@@ -71,7 +71,7 @@ Conventiionally these file must be on the root of web application and must be ca
 ### Settings 
 You can customize InfoPage behaviour settings configuration. All property of   InfoPageConfiguration.cs can be changed by user.
 | property  | Values  | Meaning  |
-|---|---|---|
+|-----------|---------|----------|
 |  BaseUrl |  String | is the url where Info Page Respond. /info is the default value   |
 |  ChangeLogPath | String  |  the path relative to root application for change log file. This file support markdown syntax  |
 |  LicensePath |  String |  the path relative to root application for License file. This file support markdown syntax    |
