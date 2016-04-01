@@ -26,7 +26,7 @@ After that you should have something like that
 ...
 <system.webServer>
     <modules runAllManagedModulesForAllRequests="true">
-      <remove name="FormsAuthentication" />
+      ...
     </modules>
   </system.webServer>
   ---
